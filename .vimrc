@@ -121,6 +121,8 @@ set listchars=tab:>-,trail:-,nbsp:%,extends:>,precedes:<
 set helplang=ja
 set completeopt=menuone
 set backspace=indent,eol,start
+set wildmenu
+set wildmode=full
 
 " filetype settings
 filetype on

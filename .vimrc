@@ -4,8 +4,8 @@ colorscheme desert
 
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim
+  call neobundle#rc(expand('~/.vim/'))
 endif
-call neobundle#rc(expand('~/.vim/'))
 
 " -------
 " Plugins
@@ -123,6 +123,10 @@ set completeopt=menuone
 set backspace=indent,eol,start
 set wildmenu
 set wildmode=full
+set incsearch
+set hlsearch
+
+source $VIMRUNTIME/macros/matchit.vim
 
 " filetype settings
 filetype on
@@ -142,5 +146,6 @@ autocmd Filetype json set ts=2 sts=2 sw=2
 " tab settings
 nmap <Tab> [Tag]
 map <silent> [Tag]c :tablast <bar> tabnew<CR>
-map <silent> [Tag]<RIGHT> :tabnext<CR>
-map <silent> [Tag]<LEFT> :tabprevious<CR>
+map <silent> [Tag]h :tabnext<CR>
+map <silent> [Tag]l :tabprevious<CR>
+map <silent> [Tag]d :tabclose<CR>

@@ -22,16 +22,33 @@ NeoBundle 'Shougo/neosnippet', {
     \ 'autoload' : {
     \   'insert' : 1,
     \ }}
+let g:acp_enableAtStartup = 0
 let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_auto_completion_start_length = 3
-let g:neocomplcache_enable_underbar_completion = 1
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-imap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-if has('conceal')
-  set conceallevel=2 concealcursor=i
-endif
+let g:neocomplcache_enable_smart_case = 1
+let g:neocomplcache_min_syntax_length = 3
+let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
+
+let g:neocomplcache_dictionary_filetype_lists = {
+    \ 'default' : ''
+    \ }
+" Plugin key-mappings.
+inoremap <expr><C-g>     neocomplcache#undo_completion()
+inoremap <expr><C-l>     neocomplcache#complete_common_string()
+
+" Recommended key-mappings.
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return neocomplcache#smart_close_popup() . "\<CR>"
+endfunction
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
+inoremap <expr><C-y>  neocomplcache#close_popup()
+inoremap <expr><C-e>  neocomplcache#cancel_popup()
+
 NeoBundle 'Shougo/neocomplcache-rsense', {
     \ 'depends' : 'Shougo/neocomplcache',
     \ 'autoload': { 'filetypes': 'ruby' }}
@@ -42,17 +59,14 @@ NeoBundleLazy 'taichouchou2/rsense-0.3', {
 let g:neocomplcache#sources#rsense#home_directory = '/usr/local/Cellar/rsense/0.3/libexec'
 
 " Plugin for endwise
-NeoBundleLazy 'tpope/vim-endwise', {
-    \ 'autoload' : {
-    \    'insert': 1,
-    \ }}
+NeoBundle "kana/vim-smartinput"
+NeoBundle "cohama/vim-smartinput-endwise"
+
+call smartinput_endwise#define_default_rules()
 
 NeoBundle 'h1mesuke/vim-alignta'
 
 NeoBundle 'itchyny/lightline.vim'
-let g:lightline = {
-    \ 'colorscheme': 'solarized'
-    \ }
 
 " Plugin ruby
 NeoBundleLazy 'vim-ruby/vim-ruby', {
@@ -98,7 +112,6 @@ NeoBundle 'JSON.vim', {
 " Plugin others
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'thinca/vim-ref'
-NeoBundle 'unagi/vim-moncf'
 NeoBundle 'hallison/vim-markdown'
 NeoBundle 'Yggdroot/indentLine'
 let g:indentLine_color_term = 239

@@ -11,6 +11,7 @@ NeoBundle 'Shougo/vimproc'
 
 NeoBundle 'Shougo/neocomplcache', { 'autoload' : { 'insert' : 1 }}
 NeoBundle 'Shougo/neosnippet', { 'autoload' : { 'insert' : 1 }}
+NeoBundle 'Shougo/neosnippet-snippets'
 let g:acp_enableAtStartup = 0
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_enable_smart_case = 1

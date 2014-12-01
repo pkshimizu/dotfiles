@@ -4,7 +4,9 @@ colorscheme desert
 
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim
-  call neobundle#rc(expand('~/.vim/'))
+  call neobundle#begin(expand('~/.vim/bundle/'))
+  NeoBundleFetch 'Shougo/neobundle.vim'
+  call neobundle#end()
 endif
 
 NeoBundle 'Shougo/vimproc'
@@ -49,12 +51,6 @@ NeoBundleLazy 'ngmy/vim-rubocop', { 'autoload' : { 'filetypes': ['ruby', 'eruby'
 NeoBundle 'thinca/vim-quickrun'
 let g:quickrun_config = {}
 let g:quickrun_config['markdown'] = { 'outputter': 'browser' }
-
-NeoBundle 'scrooloose/nerdtree'
-let file_name = expand("%:p")
-if has('vim_starting') && file_name == ""
-  autocmd VimEnter * execute 'NERDTree ./'
-endif
 
 NeoBundle 'scrooloose/syntastic'
 let g:syntastic_enable_signs = 1 

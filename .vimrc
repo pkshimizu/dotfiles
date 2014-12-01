@@ -1,5 +1,5 @@
 set nocompatible
-filetype off
+filetype off 
 colorscheme desert
 
 if has('vim_starting')
@@ -12,10 +12,10 @@ NeoBundle 'Shougo/vimproc'
 NeoBundle 'Shougo/neocomplcache', { 'autoload' : { 'insert' : 1 }}
 NeoBundle 'Shougo/neosnippet', { 'autoload' : { 'insert' : 1 }}
 NeoBundle 'Shougo/neosnippet-snippets'
-let g:acp_enableAtStartup = 0
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_enable_smart_case = 1
-let g:neocomplcache_min_syntax_length = 3
+let g:acp_enableAtStartup = 0 
+let g:neocomplcache_enable_at_startup = 1 
+let g:neocomplcache_enable_smart_case = 1 
+let g:neocomplcache_min_syntax_length = 3 
 let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 let g:neocomplcache_dictionary_filetype_lists = { 'default' : '' }
 
@@ -41,10 +41,10 @@ NeoBundle 'Shougo/neocomplcache-rsense', { 'depends' : 'Shougo/neocomplcache', '
 NeoBundle "kana/vim-smartinput"
 NeoBundle "cohama/vim-smartinput-endwise"
 
-NeoBundleLazy 'vim-ruby/vim-ruby', { 'autoload' : { 'filetypes': ['ruby', 'eruby', 'haml'] } }
-NeoBundleLazy 'skwp/vim-rspec', { 'autoload' : { 'filetypes': ['ruby', 'eruby', 'haml'] } }
-NeoBundleLazy 'ruby-matchit', { 'autoload' : { 'filetypes': ['ruby', 'eruby', 'haml'] } }
-NeoBundleLazy 'ngmy/vim-rubocop', { 'autoload' : { 'filetypes': ['ruby', 'eruby', 'haml'] } }
+NeoBundleLazy 'vim-ruby/vim-ruby', { 'autoload' : { 'filetypes': ['ruby', 'eruby', 'haml'] } } 
+NeoBundleLazy 'skwp/vim-rspec', { 'autoload' : { 'filetypes': ['ruby', 'eruby', 'haml'] } } 
+NeoBundleLazy 'ruby-matchit', { 'autoload' : { 'filetypes': ['ruby', 'eruby', 'haml'] } } 
+NeoBundleLazy 'ngmy/vim-rubocop', { 'autoload' : { 'filetypes': ['ruby', 'eruby', 'haml'] } } 
 
 NeoBundle 'thinca/vim-quickrun'
 let g:quickrun_config = {}
@@ -57,13 +57,16 @@ if has('vim_starting') && file_name == ""
 endif
 
 NeoBundle 'scrooloose/syntastic'
-let g:syntastic_enable_signs = 1
-let g:syntastic_enable_highlighting = 1
+let g:syntastic_enable_signs = 1 
+let g:syntastic_enable_highlighting = 1 
 
 NeoBundle 'JSON.vim', { 'autoload' : { 'filetypes': 'json' }}
 
 NeoBundle 'Yggdroot/indentLine'
-let g:indentLine_color_term = 239
+let g:indentLine_color_term = 239 
+
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/vimshell'
 
 set number
 set ruler
@@ -83,6 +86,9 @@ set wildmenu
 set wildmode=full
 set incsearch
 set hlsearch
+set noswapfile
+set nobackup
+set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
 
 filetype on
 filetype indent on
@@ -103,4 +109,3 @@ map <silent> [Tag]c :tablast <bar> tabnew<CR>
 map <silent> [Tag]h :tabnext<CR>
 map <silent> [Tag]l :tabprevious<CR>
 map <silent> [Tag]d :tabclose<CR>
-

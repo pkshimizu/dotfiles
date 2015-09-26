@@ -1,5 +1,5 @@
 set nocompatible
-filetype off 
+filetype off
 colorscheme desert
 
 if has('vim_starting')
@@ -9,11 +9,13 @@ if has('vim_starting')
   call neobundle#end()
 endif
 
+call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundle 'Shougo/vimproc'
 
 NeoBundle 'Shougo/neocomplcache', { 'autoload' : { 'insert' : 1 }}
 NeoBundle 'Shougo/neosnippet', { 'autoload' : { 'insert' : 1 }}
 NeoBundle 'Shougo/neosnippet-snippets'
+
 let g:acp_enableAtStartup = 0 
 let g:neocomplcache_enable_at_startup = 1 
 let g:neocomplcache_enable_smart_case = 1 
@@ -46,7 +48,7 @@ NeoBundle "cohama/vim-smartinput-endwise"
 NeoBundleLazy 'vim-ruby/vim-ruby', { 'autoload' : { 'filetypes': ['ruby', 'eruby', 'haml'] } } 
 NeoBundleLazy 'skwp/vim-rspec', { 'autoload' : { 'filetypes': ['ruby', 'eruby', 'haml'] } } 
 NeoBundleLazy 'ruby-matchit', { 'autoload' : { 'filetypes': ['ruby', 'eruby', 'haml'] } } 
-NeoBundleLazy 'ngmy/vim-rubocop', { 'autoload' : { 'filetypes': ['ruby', 'eruby', 'haml'] } } 
+NeoBundleLazy 'ngmy/vim-rubocop', { 'autoload' : { 'filetypes': ['ruby', 'eruby', 'haml'] } }
 
 NeoBundle 'thinca/vim-quickrun'
 let g:quickrun_config = {}
@@ -63,6 +65,7 @@ let g:indentLine_color_term = 239
 
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimshell'
+call neobundle#end()
 
 set number
 set ruler
@@ -85,6 +88,8 @@ set hlsearch
 set noswapfile
 set nobackup
 set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
+set visualbell t_vb=
+set noerrorbells
 
 filetype on
 filetype indent on
@@ -92,6 +97,8 @@ filetype plugin on
 syntax on
 
 au! BufRead,BufNewFile *.json set filetype=json
+au! BufRead,BufNewFile *.jade set filetype=jade
+au! BufRead,BufNewFile *.coffee set filetype=coffee
 autocmd Filetype ruby set ts=2 sts=2 sw=2
 autocmd Filetype eruby set ts=2 sts=2 sw=2
 autocmd Filetype html set ts=2 sts=2 sw=2
@@ -99,6 +106,8 @@ autocmd Filetype css set ts=2 sts=2 sw=2
 autocmd Filetype yaml set ts=2 sts=2 sw=2
 autocmd Filetype javascript set ts=2 sts=2 sw=2
 autocmd Filetype json set ts=2 sts=2 sw=2
+autocmd Filetype jade set ts=2 sts=2 sw=2
+autocmd Filetype coffee set ts=2 sts=2 sw=2
 
 nmap <Tab> [Tag]
 map <silent> [Tag]c :tablast <bar> tabnew<CR>

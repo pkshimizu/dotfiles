@@ -103,7 +103,7 @@ syntax on
 
 au! BufRead,BufNewFile *.json set filetype=json
 au! BufRead,BufNewFile *.jade set filetype=jade
-"au! BufRead,BufNewFile *.coffee set filetype=coffee
+au! BufRead,BufNewFile *.coffee set filetype=coffee
 au BufRead,BufNewFile *.md set filetype=markdown
 autocmd Filetype ruby set ts=2 sts=2 sw=2
 autocmd Filetype eruby set ts=2 sts=2 sw=2

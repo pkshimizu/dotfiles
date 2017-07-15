@@ -95,6 +95,7 @@ set nobackup
 set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
 set visualbell t_vb=
 set noerrorbells
+set autochdir
 
 filetype on
 filetype indent on

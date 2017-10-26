@@ -65,6 +65,14 @@ let g:indentLine_color_term = 239
 
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimshell'
+
+NeoBundle 'plasticboy/vim-markdown'
+
+NeoBundle 'glidenote/memolist.vim'
+let g:memolist_path = "~/Google Drive File Stream/マイドライブ/メモ/"
+let g:memolist_memo_suffix = "md"
+let g:memolist_memo_date = "%Y-%m-%d %H:%M"
+
 call neobundle#end()
 
 set number
@@ -114,3 +122,6 @@ map <silent> [Tag]c :tablast <bar> tabnew<CR>
 map <silent> [Tag]h :tabnext<CR>
 map <silent> [Tag]l :tabprevious<CR>
 map <silent> [Tag]d :tabclose<CR>
+map <silent> mn :MemoNew<CR>
+map <silent> ml :MemoList<CR>
+map <silent> mg :MemoGrep<CR>

@@ -67,11 +67,15 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimshell'
 
 NeoBundle 'plasticboy/vim-markdown'
+let g:vim_markdown_folding_disabled = 1
 
 NeoBundle 'glidenote/memolist.vim'
-let g:memolist_path = "~/Google Drive File Stream/マイドライブ/メモ/"
+let g:memolist_path = "/Volumes/GoogleDrive/マイドライブ/メモ"
 let g:memolist_memo_suffix = "md"
 let g:memolist_memo_date = "%Y-%m-%d %H:%M"
+
+NeoBundle 'scrooloose/nerdtree'
+map <C-n> :NERDTreeToggle<CR>
 
 call neobundle#end()
 

@@ -1,3 +1,4 @@
 set visualbell t_vb=
 colorscheme desert
+set lines=64 columns=160
 

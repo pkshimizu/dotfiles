@@ -76,6 +76,17 @@ setopt hist_ignore_all_dups
 # 候補を選ぶには <Tab> か Ctrl-N,B,F,P
 zstyle ':completion:*:default' menu select=1
 
-export JAVA_HOME=`/usr/libexec/java_home -v "1.8"`
+export JAVA_HOME=`/usr/libexec/java_home -v "16"`
 PATH=${JAVA_HOME}/bin:${PATH}
+
+export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="$HOME/.rbenv/shims:$PATH"
+eval "$(rbenv init -)"
+
+export PYENV_ROOT="${HOME}/.pyenv"
+if [ -d "${PYENV_ROOT}" ]; then
+  export PATH=${PYENV_ROOT}/shims:$PATH
+  eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
+fi
 
